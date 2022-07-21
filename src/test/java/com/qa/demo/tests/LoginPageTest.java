@@ -1,6 +1,5 @@
 package com.qa.demo.tests;
 
-import java.io.Serial;
 
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
