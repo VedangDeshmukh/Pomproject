@@ -81,11 +81,11 @@ public class DriverFactory {
 		return prop;
 	}
 
-	public String getScreenshot() {
+	 public String getScreenshot() {
 
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 
-		String path = System.getProperty("user.dir") + "/screenshot" + System.currentTimeMillis() + ".png";
+		String path = "./screenshot" + System.currentTimeMillis() + ".png";
 
 		File destFile = new File(path);
 
