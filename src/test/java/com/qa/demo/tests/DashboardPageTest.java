@@ -11,7 +11,12 @@ import com.qa.demo.listeners.TestAllureListener;
 import com.qa.demo.utils.Constants;
 import com.qa.demo.utils.Error;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
+
 @Listeners(TestAllureListener.class)
+@Epic("Dashboard Page")
+@Story("STR01-Dashbaord view for user")
 public class DashboardPageTest extends BaseTest {
 
 	@BeforeClass

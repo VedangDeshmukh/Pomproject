@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import com.qa.demo.utils.Constants;
 import com.qa.demo.utils.ElementUtil;
 
+import io.qameta.allure.Step;
+
 public class DashboardPage {
 
 	private WebDriver driver;
@@ -31,18 +33,23 @@ public class DashboardPage {
 	}
 
 	
+	
+	@Step("getting the dashbaord page header")
 	public String getDashboardPageHeader() {
 		return elementUtil.doGetText(dashboardheader);
 	}
 	
+	@Step("getting the dashbaord page url")
 	public String getDashboardPageUrl() {
 		return elementUtil.waitForUrlIs(Constants.DEFAULTIMEOUT, Constants.DASHBOARDPAGE_URL);
 	}
 
+	@Step("getting the dashbaord page quick launch list")
 	public List<String> getQuickLaunchesLinks() {
 		return elementUtil.getLinksTextList(quicklaunclist);
 	}
 
+	@Step("check quicklaunc list logo are available")
 	public boolean checkQuickLaunchesIconsAreDisplayed() {
 
 		boolean flag = false;
@@ -59,11 +66,13 @@ public class DashboardPage {
 
 	}
 
+	@Step("getting the main menu list")
 	public List<String> getMainMenuList() {
 		return elementUtil.getLinksTextList(mainmenus);
 	}
 
 	
+	@Step("navigateting to the candidate page")
 	public CandidatesInfoPage navigateToCandidatesPage() {
 
 		elementUtil.twoLevelMenuhandel(recruitement, candidate);

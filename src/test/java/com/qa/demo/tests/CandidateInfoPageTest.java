@@ -62,6 +62,11 @@ public class CandidateInfoPageTest extends BaseTest {
 //	}
 	
 	
+	/*@DataProvider
+	public Object[][] getCandidateData(){
+		return ExcelUtil.getTestData("candidateregisterdata");
+	}*/
+	
 	@DataProvider
 	public Object[][] getCandidateData(){
 		return ExcelUtil.getTestData("candidateregisterdata");
