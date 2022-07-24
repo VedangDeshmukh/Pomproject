@@ -8,7 +8,11 @@
 	<listeners>
 
 		<listener
+			class-name="com.qa.demo.listeners.AnnotationTransformer" />
+		<listener
 			class-name="com.qa.demo.listeners.ExtentReportListener" />
+		<listener
+			class-name="com.qa.demo.listeners.TestAllureListener" />
 
 	</listeners>
 

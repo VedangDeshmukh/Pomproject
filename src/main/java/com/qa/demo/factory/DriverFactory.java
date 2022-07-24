@@ -64,23 +64,46 @@ public class DriverFactory {
 	public Properties initProperties() {
 
 		Properties prop = null;
+		FileInputStream ip = null;
+
+		String env = System.getProperty("env"); // mvn clean install -Denv="qa"
 
 		try {
-			FileInputStream ip = new FileInputStream("./src/test/resources/config/qaconfig.properties");
-			prop = new Properties();
-			try {
-				prop.load(ip);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if (env == null) {
+				System.out.println("Running on Environment: PRODUCTION");
+
+				ip = new FileInputStream("./src/test/resources/config/qaconfig.properties");
+
+			} else {
+
+				switch (env) {
+				case "qa":
+					ip = new FileInputStream("./src/test/resources/config/qa_config.properties");
+					break;
+
+				case "stage":
+					ip = new FileInputStream("./src/test/resources/config/stage_config.properties");
+					break;
+
+				default:
+					System.out.println("No ENV found.....");
+					break;
+				}
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
+		try {
+			prop = new Properties();
+			prop.load(ip);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		return prop;
 	}
-
 	
 	/**
 	 * take screenshot
