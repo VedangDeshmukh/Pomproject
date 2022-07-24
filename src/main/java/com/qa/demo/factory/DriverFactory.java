@@ -87,10 +87,13 @@ public class DriverFactory {
 
 				default:
 					System.out.println("No ENV found.....");
-					break;
+					throw new Exception("NOENVFOUNDEXCEPTION");
 				}
 			}
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
