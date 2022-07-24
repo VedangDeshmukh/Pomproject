@@ -27,6 +27,9 @@ public class LoginPageTest extends BaseTest {
 	public void loginPageUrlTest() {
 		String loginpaheurl = loginPage.getLoginPageUrl();
 		System.out.println("login page url is:"+loginpaheurl);
+		System.out.println("login page url is:"+loginpaheurl);
+		
+
 		
 		Assert.assertEquals(loginpaheurl, Constants.LOGINPAGE_URL,Error.URL_MISMATCH_ERROR);
 	}
