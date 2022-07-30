@@ -66,21 +66,23 @@ pipeline
         
         
         stage('Email Report') {
-   			 // Change the recipent address
-   			 sh "zip -r allure-report.zip allure-report"
-   			 def mailRecipients = "deshmukhvedang7@gmail.com"
- 			 env.ForEmailPlugin = env.WORKSPACE
- 			 if(fileExists('allure-report.zip')){
-      				  	emailext(
-       			     	to: "${mailRecipients}",
-         			 	from: "deshmukhvedang7@gmail.com",
-           				subject: "Allure Report",
-            			body: "PFA",
-           				attachmentsPattern: 'allure-report.zip')
-    		}else{
-					echo("COULD NOT FIND FILE TO ATTACH")
-        		}
-		}
+        	steps{
+   			 	// Change the recipent address
+   			 	sh "zip -r allure-report.zip allure-report"
+   				 def mailRecipients = "deshmukhvedang7@gmail.com"
+ 				 env.ForEmailPlugin = env.WORKSPACE
+ 				 if(fileExists('allure-report.zip')){
+      				  		emailext(
+       			     		to: "${mailRecipients}",
+         			 		from: "deshmukhvedang7@gmail.com",
+           					subject: "Allure Report",
+            				body: "PFA",
+           					attachmentsPattern: 'allure-report.zip')
+    			}else{
+						echo("COULD NOT FIND FILE TO ATTACH")
+        			}
+			}
+		}	
         
         
    
